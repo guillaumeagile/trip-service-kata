@@ -1,8 +1,22 @@
 ﻿using TripServiceKata.Exception;
 
 namespace TripServiceKata.User
-{ 
-    public class UserSession 
+{
+
+    public interface IUserSession
+    {
+         User GetLoggedUser();
+    }
+
+    public class UserSessionForTest : IUserSession
+    {
+         public User GetLoggedUser()
+        {
+           return new User();
+        }
+    }
+
+    public class UserSession : IUserSession
     {
         private static readonly UserSession userSession = new UserSession();
 
